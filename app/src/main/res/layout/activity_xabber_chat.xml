@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafafa"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/toolbarMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/loginView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/txtUserName"
+            style="@style/textbox"
+            android:hint="username"
+            android:text="" />
+
+        <EditText
+            android:id="@+id/txtPassword"
+            style="@style/textbox"
+            android:hint="password"
+            android:text="" />
+
+
+        <EditText
+            android:id="@+id/txtSender"
+            style="@style/textbox"
+            android:hint="senderId"
+            android:text="" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="login" />
+
+        <Button
+            android:id="@+id/btnReverse"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#008822"
+            android:padding="8dp"
+            android:text="Reverse"
+            android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lastSean"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#7d7d7d"
+                android:gravity="center"
+                android:visibility="gone"
+                android:padding="3dp"
+                android:text="Last seen : "
+                android:textStyle="bold"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/ownStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#7d7d7d"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="#ffffff" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dcdcdc"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <include
+                            android:id="@+id/reply_view"
+                            layout="@layout/view_reply"
+                            android:visibility="visible" />
+
+                        <EditText
+                            android:id="@+id/txtMessage"
+                            style="@style/textbox"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginBottom="1dp"
+                            android:hint="username" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnSend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="56dp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="#008822"
+                        android:clickable="true"
+                        android:padding="8dp"
+                        android:text="Send"
+                        android:textColor="#fff" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/minuteDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#99000000"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set minute for calculator hide"
+                    android:textColor="#fff" />
+
+                <EditText
+                    android:id="@+id/txtMinutes"
+                    style="@style/textbox"
+                    android:hint="minutes"
+                    android:inputType="number"
+                    android:text="5" />
+
+                <Button
+                    android:id="@+id/btnSetTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Ok" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

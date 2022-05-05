@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="40dp"
+    android:background="@drawable/bg_from_chat"
+    android:gravity="left"
+    android:orientation="vertical"
+    android:paddingStart="10dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/tvUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:text="User"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvReplyMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="6dp"
+        android:paddingEnd="4dp"
+        android:paddingStart="4dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/reply_background"
+        android:text="reply"
+        android:padding="3dp"
+        android:textColor="@color/black_3"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:autoLink="all"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="s"
+        android:textSize="16sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvMessageDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingEnd="16dp"
+            android:text=""
+            android:textColor="@color/black_3"
+            android:textSize="12sp"/>
+
+        <ImageView
+            android:id="@+id/imgStatus"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_below="@+id/tvMessage"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/ic_delivered"/>
+    </LinearLayout>
+</LinearLayout>

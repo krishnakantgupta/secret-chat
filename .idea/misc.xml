@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/drawable/bg_from_chat.xml" value="0.195" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/drawable/bg_to_chat.xml" value="0.195" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/drawable/ic_delete_green.xml" value="0.1855" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/drawable/operator_selector.xml" value="0.1855" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/drawable/reply_background.xml" value="0.1855" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/drawable/txt_background.xml" value="0.1855" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/layout/activity_chat_fire_base.xml" value="0.2421875" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/layout/activity_sign_in.xml" value="0.2421875" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/layout/activity_xabber_chat.xml" value="0.22826086956521738" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/layout/message.xml" value="0.2421875" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/layout/view_from.xml" value="0.20199275362318841" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/layout/view_reply.xml" value="0.2" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/layout/view_to.xml" value="0.2421875" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/menu/activity_chat.xml" value="0.2421875" />
+        <entry key="..\:/kkwork/personal/project/SecretChat/app/src/main/res/menu/chat_context_menu.xml" value="0.2421875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
