@@ -75,17 +75,18 @@ class XabberChatActivity : AppCompatActivity(), ChatView {
 
     override fun onPause() {
         if (isLogin) {
-            recylerView.visibility = View.INVISIBLE
+            recylerView.visibility = View.GONE
             sendStatus(ChatState.inactive)
         }
-        if (pref.calHideFor > -1) {
-            var diff = Utils.getTimeDifferenceInMinutes(AppPref.lastOpenDate, Date().time)
-            if (diff >= pref.calHideFor) {
-                finish()
-            }
-        } else {
-            finish()
-        }
+//        if (pref.calHideFor > -1) {
+//            var diff = Utils.getTimeDifferenceInMinutes(AppPref.lastOpenDate, Date().time)
+//            if (diff >= pref.calHideFor) {
+//                finish()
+//            }
+//        } else {
+//            finish()
+//        }
+        finish()
 
         super.onPause()
     }
@@ -126,10 +127,10 @@ class XabberChatActivity : AppCompatActivity(), ChatView {
         val password = ""
 
         findViewById<View>(R.id.btnReverse).setOnClickListener { v ->
-            txtUsername.setText(senderID)
-            txtPassword.setText("")
-            findViewById<EditText>(R.id.txtSender).setText(username)
-            senderID = username
+//            txtUsername.setText(senderID)
+//            txtPassword.setText("")
+//            findViewById<EditText>(R.id.txtSender).setText(username)
+//            senderID = username
         }
 
 

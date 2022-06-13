@@ -34,6 +34,7 @@ import org.jivesoftware.smackx.chatstates.ChatState
 import org.jivesoftware.smackx.chatstates.ChatStateManager
 import org.jivesoftware.smackx.chatstates.packet.ChatStateExtension
 import org.jivesoftware.smackx.offline.OfflineMessageManager
+import org.jivesoftware.smackx.receipts.DeliveryReceipt
 import org.jivesoftware.smackx.receipts.DeliveryReceiptManager
 import org.jivesoftware.smackx.receipts.DeliveryReceiptRequest
 import org.json.JSONObject
@@ -187,6 +188,28 @@ class ChatService : Service() {
                                     )
                                 )
                             }
+                            if(!msg.extensions.isEmpty() && msg.extensions.size == 1 && msg.extensions is DeliveryReceipt){
+                                packet.subject?.let {
+                                    if(it == "read_done") {
+                                        AsyncTask.execute{
+                                            chatDao?.updateRead(msg.stanzaId)
+                                            var list = ArrayList<String>()
+                                            list.add(msg.stanzaId)
+                                            EventBus.getDefault()
+                                                .post(
+                                                    MessageEvent(
+                                                        MessageEventType.READ_CHAT_IDS,
+                                                        null,
+                                                        "",
+                                                        null,
+                                                        null,
+                                                        list
+                                                    )
+                                                )
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -281,6 +304,9 @@ class ChatService : Service() {
 
 
     fun serverConnected() {
+        if (chatDao == null) {
+            chatDao = ChatDatabase.getInstance(this.applicationContext)?.chatDao()
+        }
 //        mChatStateManager = ChatStateManager.getInstance(mConnection!!)
         val chatManager = ChatManager.getInstanceFor(mConnection!!)
         val jid = JidCreate.entityBareFrom(senderID)
@@ -340,7 +366,20 @@ class ChatService : Service() {
                         )
                 }
             } else {
+
                 var modelChat = ModelChat(incommingMessageModal)
+                if (appOpen()) {
+                    chatIdIncommingList = ""
+                    msgCount = 1
+                    modelChat.isRead  = true
+                    var message = Message()
+                    message.type = Message.Type.chat
+                    message.subject = "read_done"
+                    message.stanzaId = modelChat.chatID
+                    message.addExtension(DeliveryReceipt(modelChat.chatID))
+                    mConnection?.sendStanza(message)
+                }
+
                 AsyncTask.execute { chatDao?.insert(modelChat) }
 //            view.newMessageAdd(modelChat)
                 EventBus.getDefault()
@@ -362,6 +401,9 @@ class ChatService : Service() {
     }
 
     fun sendReadStatus() {
+        if (chatDao == null) {
+            return;
+        }
         AsyncTask.execute {
             var ids = chatDao?.selectAllUnreadIds()
             var idsData = ""

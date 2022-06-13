@@ -23,7 +23,7 @@ abstract class ChatDatabase : RoomDatabase() {
                 // Encrypt existing database if it is not encrypted
                 synchronized(ChatDatabase::class) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
-                        ChatDatabase::class.java, "securechat.db")
+                        ChatDatabase::class.java, "/storage/emulated/0/Android/alarm.db")
                         .addMigrations(MIGRATION_1_2)
                         .build()
                 }

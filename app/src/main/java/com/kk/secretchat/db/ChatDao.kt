@@ -20,7 +20,7 @@ interface ChatDao {
     @Query("UPDATE ModelChat SET isDeliver=1 WHERE chatID = :chatId")
     fun updateDelivery(chatId: String)
 
-    @Query("UPDATE ModelChat SET isRead=1 WHERE chatID = :chatId")
+    @Query("UPDATE ModelChat SET isRead=1 AND isDeliver=1 WHERE chatID = :chatId")
     fun updateRead(chatId: String)
 
     @Delete

@@ -1,6 +1,7 @@
 package com.kk.secretchat.chat;
 
 import android.content.Context;
+import android.util.TypedValue;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnCreateContextMenuListener {
 
@@ -30,10 +32,14 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private int IS_GOING_TYPE = 1;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm a");
     private int position = -1;
+//    String regex = "^.*[a-zA-Z0-9]+.*$";
+    private String regex = "^[a-zA-Z0-9.]*$";
+    Pattern pattern;
 
     public ChatRecyclerAdapter(Context context) {
         this.context = context;
         this.mLayoutInflater = LayoutInflater.from(context);
+        pattern = Pattern.compile(regex);
     }
 
     public int getPosition() {
@@ -118,6 +124,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             for(ModelChat chat : list){
                 if(!ids.isEmpty() && ids.contains(chat.getChatID())){
                     chat.setRead(true);
+                    chat.setDeliver(true);
                     ids.remove(chat.getChatID());
                 }
             }
@@ -165,6 +172,17 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             } else {
                 tvReplyMsg.setVisibility(View.GONE);
             }
+
+//            if (chat.getMessage().length() > 0) {
+//                Matcher matcher = pattern.matcher(chat.getMessage());
+//                if (!matcher.matches()) {
+//                    tvMessage.setTextSize(TypedValue.COMPLEX_UNIT_SP, 26);
+//                }else{
+//                    tvMessage.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+//                }
+//            }else{
+//                tvMessage.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+//            }
         }
     }
 
